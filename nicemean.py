@@ -10,10 +10,6 @@
 #
 
 
-import image
-myImage = Image.open("handshake.png")
-myImage.show();
-
 
 def start(nice=0,mean=0,name=""):
     # get user's name
@@ -30,6 +26,8 @@ def describe_game(name):
         playing again and continue game
 
     """
+    #meaning, if we do not already have this users name,
+    #then they are a new player and we need their name
     if name != "":
         print("\nThank you for playing again, {}!".format(name))
     else:
@@ -57,7 +55,7 @@ def nice_mean(nice,mean,name):
             print("\nThe stranger glares at you \nmenacingly and storms off...")
             mean = (mean + 1)
             stop = False
-        score(nice,mean,name)
+        score(nice,mean,name) #pass the 3 variables to score()
 
 
 def show_score(nice,mean,name):
@@ -65,19 +63,21 @@ def show_score(nice,mean,name):
 
 
 def score(nice,mean,name):
-    if nice > 2:
+    #score function is being paassed to the values within the 3 variables
+    if nice > 2: #if the condition is valid, call win function
         win(nice,mean,name)
-    if mean > 2:
+    if mean > 2: # if condition is valid, call lose function
         lose(nice,mean,name)
-    else:
+    else: #else, call nice_mean function
         nice_mean(nice,mean,name)
 
 
 
 def win(nice,mean,name):
+    #substitute the {} wildcards with our variable values
     print("\nNice job {}, you win! \nEveryone loves you and you've \nmade lots of friends along the way!".format(name))
     again(nice,mean,name)
-
+    #call again function and pass in our variables
 
 def lose(nice,mean,name):
     print("\nAhh too bad, game over! \n{}, you live in a dirty beat-up \nvan on the river, wretched and alone!".format(name))
