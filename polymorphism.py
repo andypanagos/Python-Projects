@@ -1,39 +1,49 @@
+class User:
+    name = "Andy"
+    email = "andypanagos@gmail"
+    password = "abc123"
 
-
-class Employee:
-    name = 'Andy'
-    email = 'andy@gmail.com'
-    password = 'abc123'
-
-    def logIn(self):
-        login_name = input("Enter Name: ")
-        login_email = input("Enter Email: ")
-        login_password = input("Enter Password: ")
-        if (login_email == self.email and login_password == self.password):
-            print("Welcome back, {}!".format (login_name))
+    def getLoginInfo(self):
+        entry_name = input("Enter your name: ")
+        entry_email = input("Enter your email: ")
+        entry_password = input("Enter your password: ")
+        if (entry_email == self.email and entry_password == self.password):
+            print("Welcome back, {}!".format(entry_name))
         else:
-            print(" password or email is incorrect.")
+            print("The password or email is incorrect.")
 
-class CEO(Employee):
-    master_pin = 1212
-    security_answer = 'ontario'
+class Employee(User):
+    base_pay = 12.00
+    department = "Fragrance"
+    pin_number = "2002"
 
-    def logIn(self):
-        login_name = ("Provide Your Name: ")
-        login_pin = ("Please Enter Master Pin: ")
-        login_security = ("What is your security question answer: ")
-        if (login_pin == self.master_pin and login_security == self.security_answer):
-            print("Hello CEO, {}!".format (login_name))
+    def getLoginInfo(self):
+        entry_name = input("Enter your name: ")
+        entry_email = input("Enter your email: ")
+        entry_pin = input("Enter your pin: ")
+        if (entry_email == self.email and entry_pin == self.pin_number):
+            print("Welcome back, {}!".format(entry_name))
         else:
-            print(" you are not the CEO. ")
+            print("The password or email is incorrect.")
+            
+class Supplier(User):
+    base_pay = 12.95
+    entry_phonenumber = "617-935-2756"
 
-
-
-employee = Employee()
-employee.logIn()
-
-ceo = CEO()
-ceo.logIn()
-
-if __name__ == '__main__':
+    def getLoginInfo(self):
+        entry_name = input("Enter your name: ")
+        entry_phonenumber = input("Enter your phone number: ")
+        entry_password = input("Enter your password: ")
+        if (entry_phonenumber == self.phonenumber and entry_password == self.password):
+            print("Welcome back, {}!".format(entry_name))
+        else:
+            print("The password or phone number is incorrect.")
+        
     
+
+customer = User()
+customer.getLoginInfo()
+
+manager = Employee()
+manager.getLoginInfo()
+        
