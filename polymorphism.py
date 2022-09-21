@@ -29,12 +29,13 @@ class Employee(User):
 class Supplier(User):
     base_pay = 12.95
     entry_phonenumber = "617-935-2756"
-
+    entry_password = 'abc123'
+    
     def getLoginInfo(self):
         entry_name = input("Enter your name: ")
         entry_phonenumber = input("Enter your phone number: ")
         entry_password = input("Enter your password: ")
-        if (entry_phonenumber == self.phonenumber and entry_password == self.password):
+        if (entry_phonenumber == self.entry_phonenumber and entry_password == self.password):
             print("Welcome back, {}!".format(entry_name))
         else:
             print("The password or phone number is incorrect.")
@@ -46,4 +47,7 @@ customer.getLoginInfo()
 
 manager = Employee()
 manager.getLoginInfo()
-        
+
+
+sup = Supplier()
+sup.getLoginInfo()
