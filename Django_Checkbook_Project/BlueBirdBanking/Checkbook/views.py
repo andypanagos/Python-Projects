@@ -12,7 +12,6 @@ def home(request):
     content = {'form': form}
     return render(request, 'checkbook/index.html', content)
 
-    return render(request,"checkbook/index.html")
 
 
 
